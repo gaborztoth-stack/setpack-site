@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SETPACK</title>
-<meta name="description" content="SETPACK — 2D lighting and production planning for iPad.">
+<title>SETPACK — 2D lighting &amp; set planning for iPad</title>
+<meta name="description" content="SETPACK — a 2D lighting, shoot planning and set-marking tool for iPad, built for the film industry.">
 <style>
   :root { color-scheme: light dark; }
   * { box-sizing: border-box; }
@@ -19,6 +19,22 @@
   .wrap { max-width: 640px; margin: 0 auto; padding: 12vh 24px 10vh; }
   h1 { font-size: 2.4rem; letter-spacing: 0.06em; margin: 0 0 0.2em; font-weight: 700; }
   .tag { color: #666; font-size: 1.05rem; margin: 0 0 2.4em; }
+
+  ul.does { list-style: none; padding: 0; margin: 0 0 2.8em; }
+  ul.does li { padding: 0 0 0 1.4em; margin-bottom: 0.7em; position: relative; }
+  ul.does li::before {
+    content: ""; position: absolute; left: 0; top: 0.72em;
+    width: 6px; height: 6px; border-radius: 50%; background: #1a1a1a;
+  }
+
+  .beta { border-top: 1px solid #e2e2e2; padding-top: 2.2em; margin-bottom: 3.2em; }
+  .beta p { margin: 0 0 1.4em; }
+  .cta {
+    display: inline-block; padding: 13px 24px; border-radius: 10px;
+    background: #1a1a1a; color: #fafafa; text-decoration: none; font-weight: 600;
+  }
+  .cta:hover { opacity: 0.85; }
+
   nav { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 2.4em; }
   nav a {
     display: inline-block; padding: 10px 18px; border: 1px solid #ccc;
@@ -28,9 +44,13 @@
   .contact { color: #666; font-size: 0.95rem; }
   .contact a { color: inherit; }
   footer { margin-top: 4em; color: #999; font-size: 0.85rem; }
+
   @media (prefers-color-scheme: dark) {
     body { color: #eaeaea; background: #111; }
     .tag, .contact { color: #999; }
+    ul.does li::before { background: #eaeaea; }
+    .beta { border-top-color: #2a2a2a; }
+    .cta { background: #eaeaea; color: #111; }
     nav a { border-color: #333; color: #eaeaea; }
     nav a:hover { border-color: #eaeaea; }
     footer { color: #666; }
@@ -40,7 +60,19 @@
 <body>
   <main class="wrap">
     <h1>SETPACK</h1>
-    <p class="tag">2D lighting &amp; production planning for iPad.</p>
+    <p class="tag">A 2D lighting, shoot planning and set-marking tool for iPad. Built for the film industry.</p>
+
+    <ul class="does">
+      <li>Place lights, camera, grip and set dressing on a plan. Everything starts with a point.</li>
+      <li>Import a floor plan. Export a PDF the crew can actually read on set.</li>
+      <li>Runs entirely on your iPad. No account, no tracking, no servers.</li>
+    </ul>
+
+    <section class="beta">
+      <p>SETPACK is in private beta. We are inviting a small number of working film crew to use it on real jobs and tell us what breaks.</p>
+      <a class="cta" href="https://tally.so/r/zxBXXZ">Request beta access</a>
+    </section>
+
     <nav>
       <a href="./privacy.html">Privacy Policy</a>
       <a href="./terms.html">Terms of Use</a>
