@@ -1,0 +1,122 @@
+/* SETPACK — site stylesheet
+   Tokens from the brand book data block (BRAND/tools/build_brand_book.py):
+   chrome ladder 220°: boardVeil #08080A · panelSurface #101113 · panelSurfaceRaised #151619 · chipRaisedFill #1C1E21
+   ink rgba(216,216,218,.85) (never pure #FFF) · hairline rgba(216,216,218,.12) · single accent #C4D3E2
+   type: sans (SF Pro) for text, mono (SF Mono / JetBrains Mono) for labels & numbers. No gradients, no analytics. */
+
+:root {
+  color-scheme: dark;
+  --board: #08080A;
+  --panel: #101113;
+  --raised: #151619;
+  --top: #1C1E21;
+  --ink: rgba(216,216,218,0.85);
+  --ink-2: rgba(216,216,218,0.55);
+  --ink-3: rgba(216,216,218,0.35);
+  --hair: rgba(216,216,218,0.12);
+  --accent: #C4D3E2;
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro", "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--board); }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--board);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.wrap { max-width: 640px; margin: 0 auto; padding: 10vh 24px 8vh; }
+.wrap.doc { max-width: 720px; padding-top: 6vh; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── labels: mono, small caps-tracking — the app's chip language ── */
+.label, a.back, footer, .contact {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.label { display: block; margin: 0 0 0.9em; }
+a.back { display: inline-block; color: var(--ink-2); }
+a.back:hover { color: var(--ink); text-decoration: none; }
+
+/* ── hero ── */
+.hero { display: flex; align-items: center; gap: 18px; margin: 0 0 1.2em; }
+.mark {
+  width: 64px; height: 64px; flex: 0 0 64px;
+  border-radius: 22.5%;
+  border: 1px solid var(--hair);
+  background: var(--panel);
+  display: block;
+}
+h1 {
+  font-size: 2.3rem; font-weight: 800; letter-spacing: 0.08em;
+  line-height: 1; margin: 0; color: var(--ink);
+}
+.doc h1 { font-size: 1.9rem; letter-spacing: 0.02em; margin: 0.7em 0 0.15em; }
+.tag { font-size: 1.12rem; color: var(--ink); margin: 0 0 2.6em; }
+.meta { color: var(--ink-2); margin: 0 0 2.2em; }
+.meta a { color: inherit; }
+h2 { font-size: 1.15rem; font-weight: 600; margin: 2.2em 0 0.4em; color: var(--ink); }
+p, li { font-size: 1.02rem; }
+ul { padding-left: 1.3em; }
+li { margin: 0.4em 0; }
+
+/* ── "what it does": the point is the hero — dot + hairline ring ── */
+ul.does { list-style: none; padding: 0; margin: 0 0 2.6em; }
+ul.does li { padding: 0 0 0 1.5em; margin-bottom: 0.8em; position: relative; }
+ul.does li::before {
+  content: ""; position: absolute; left: 1px; top: 0.68em;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--ink);
+  box-shadow: 0 0 0 3px var(--hair);
+}
+
+/* ── panel card (beta) ── */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--hair);
+  border-radius: 14px;
+  padding: 22px 24px 24px;
+  margin: 0 0 2.6em;
+}
+.panel p { margin: 0 0 1.3em; }
+
+/* ── CTA: the single accent, active state ── */
+.cta {
+  display: inline-block; padding: 13px 22px; border-radius: 10px;
+  background: var(--accent); color: var(--board);
+  font-weight: 600; text-decoration: none;
+}
+.cta:hover { text-decoration: none; filter: brightness(1.06); }
+.cta.ghost { background: transparent; color: var(--ink); border: 1px solid var(--hair); }
+.cta.ghost:hover { border-color: var(--accent); filter: none; }
+
+/* ── nav chips ── */
+nav { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 2em; }
+nav a {
+  display: inline-block; padding: 9px 16px; border-radius: 9px;
+  background: var(--raised); border: 1px solid var(--hair);
+  color: var(--ink); font-weight: 500; font-size: 0.95rem;
+}
+nav a:hover { border-color: var(--accent); text-decoration: none; }
+
+.contact { text-transform: none; letter-spacing: 0.02em; }
+.contact a { color: var(--ink); }
+hr { border: none; border-top: 1px solid var(--hair); margin: 3em 0 1.5em; }
+footer { margin-top: 4em; color: var(--ink-3); }
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.9rem; }
+  .mark { width: 52px; height: 52px; flex-basis: 52px; }
+  .hero { gap: 14px; }
+}
