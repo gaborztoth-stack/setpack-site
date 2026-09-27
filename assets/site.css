@@ -70,6 +70,10 @@ h1.setpack-wordmark {
 }
 .setpack-wordmark b { font-weight: 700; }
 .doc h1 { font-size: 1.9rem; letter-spacing: 0.02em; margin: 0.7em 0 0.15em; }
+.claim {
+  font-size: 1.55rem; font-weight: 600; line-height: 1.25;
+  letter-spacing: -0.01em; color: #EBEBEF; margin: 0 0 0.35em;
+}
 .tag { font-size: 1.12rem; color: var(--ink); margin: 0 0 2.6em; }
 .meta { color: var(--ink-2); margin: 0 0 2.2em; }
 .meta a { color: inherit; }
@@ -125,6 +129,7 @@ footer { margin-top: 4em; color: var(--ink-3); }
 @media (max-width: 480px) {
   h1 { font-size: 1.9rem; }
   h1.setpack-wordmark { font-size: 36px; }
+  .claim { font-size: 1.3rem; }
   .mark { width: 52px; height: 52px; flex-basis: 52px; }
   .hero { gap: 14px; }
 }
