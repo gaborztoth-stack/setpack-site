@@ -200,3 +200,16 @@ button.cta { font: inherit; font-weight: 600; cursor: pointer; }
 /* story: the message core as one flowing paragraph (replaces the 3 points) */
 .copy .story { font-size: 1.06rem; line-height: 1.7; color: var(--ink); margin: 0 auto 2.2em; max-width: 34em; text-align: center; text-wrap: balance; }
 @media (max-width: 900px) { .copy .story { order: 2; } }
+
+/* beta block, quiet: no card — a short centred hairline, centred copy, a smaller filled pill (the single accent), bare paper plane */
+.copy .panel {
+  background: none; border: 0; border-radius: 0; padding: 0;
+  max-width: 30em; margin: 0 auto; text-align: center;
+}
+.copy .panel::before { content: ""; display: block; width: 40px; height: 1px; background: var(--hair); margin: 0 auto 1.6em; }
+.copy .panel .label { color: var(--ink-3); font-size: 0.66rem; letter-spacing: 0.16em; margin-bottom: 1em; }
+.copy .panel p { color: var(--ink-2); font-size: 0.98rem; line-height: 1.65; text-wrap: balance; margin-bottom: 1.6em; }
+.copy .panel .actions { justify-content: center; align-items: center; gap: 6px; }
+.copy .panel .cta { padding: 10px 20px; border-radius: 999px; font-size: 0.92rem; font-weight: 500; letter-spacing: 0.01em; }
+.copy .panel .cta.plane { border: 0; background: none; width: 40px; height: 40px; padding: 0; color: var(--ink-2); }
+.copy .panel .cta.plane:hover, .copy .panel .cta.plane.ok { color: var(--accent); }
