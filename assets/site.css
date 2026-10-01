@@ -210,6 +210,14 @@ button.cta { font: inherit; font-weight: 600; cursor: pointer; }
 .copy .panel .label { color: var(--ink-3); font-size: 0.66rem; letter-spacing: 0.16em; margin-bottom: 1em; }
 .copy .panel p { color: var(--ink-2); font-size: 0.98rem; line-height: 1.65; text-wrap: balance; margin-bottom: 1.6em; }
 .copy .panel .actions { justify-content: center; align-items: center; gap: 6px; }
-.copy .panel .cta { padding: 10px 20px; border-radius: 999px; font-size: 0.92rem; font-weight: 500; letter-spacing: 0.01em; }
+.copy .panel .cta { padding: 10px 20px; border-radius: 999px; font-size: 0.92rem; font-weight: 500; letter-spacing: 0.01em; background: var(--ink); color: var(--board); }
 .copy .panel .cta.plane { border: 0; background: none; width: 40px; height: 40px; padding: 0; color: var(--ink-2); }
-.copy .panel .cta.plane:hover, .copy .panel .cta.plane.ok { color: var(--accent); }
+.copy .panel .cta.plane:hover, .copy .panel .cta.plane.ok { color: var(--ink); }
+
+/* foot, quiet like the beta block: plain links, no chips; contact + © in the same small mono */
+.foot nav { gap: 28px; margin-bottom: 1.4em; }
+.foot nav a { padding: 0; background: none; border: 0; border-radius: 0; color: var(--ink-2); font-size: 0.85rem; font-weight: 400; }
+.foot nav a:hover { color: var(--ink); text-decoration: none; }
+.foot .contact { color: var(--ink-3); font-size: 0.7rem; margin: 0; }
+.foot .contact a { color: var(--ink-2); }
+.foot footer { margin-top: 0.8em; font-size: 0.66rem; letter-spacing: 0.14em; }
