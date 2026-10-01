@@ -136,11 +136,11 @@ footer { margin-top: 4em; color: var(--ink-3); }
   .hero { gap: 14px; }
 }
 
-/* ── landing: centred mark + wordmark, then text left / video right ── */
+/* ── landing: text column left / video right; brand + copy centred in the column, as on phones ── */
 .wrap.landing { max-width: 1520px; padding: 8vh 40px 6vh; }
 
 .brand {
-  display: flex; flex-direction: column; align-items: flex-start; text-align: left;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
   gap: 16px; margin: 0 0 3em;
 }
 .brand .mark {
@@ -153,6 +153,7 @@ footer { margin-top: 4em; color: var(--ink-3); }
   display: grid; grid-template-columns: minmax(340px, 4fr) minmax(0, 8fr);
   gap: 56px; align-items: center; margin: 0 0 10vh;
 }
+.copy .lead-in, .copy .claim, .copy .tag { text-align: center; }
 .copy .claim { font-size: 2.1rem; line-height: 1.15; margin: 0 0 0.45em; text-wrap: balance; }
 .copy .tag { font-size: 1.15rem; color: var(--ink-2); margin: 0 0 2em; text-wrap: balance; }
 .copy ul.does { margin-bottom: 2.2em; }
@@ -172,13 +173,12 @@ footer { margin-top: 4em; color: var(--ink-3); }
 /* tablet / phone: one column, video directly under the claim */
 @media (max-width: 900px) {
   .split { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
-  .copy .lead-in, .copy .claim, .copy .tag { text-align: center; }
   .copy { display: contents; }
   .copy .lead-in, .copy .claim, .copy .tag { order: 0; }
   .shot.device { order: 1; margin: 0 0 2.4em; }
   .copy ul.does { order: 2; }
   .copy .panel { order: 3; }
-  .brand { align-items: center; text-align: center; margin-bottom: 5vh; }
+  .brand { margin-bottom: 5vh; }
 }
 @media (max-width: 600px) {
   .wrap.landing { padding: 7vh 20px 5vh; }
@@ -198,5 +198,5 @@ button.cta { font: inherit; font-weight: 600; cursor: pointer; }
 .cta.plane.ok { border-color: var(--accent); color: var(--accent); }
 
 /* story: the message core as one flowing paragraph (replaces the 3 points) */
-.copy .story { font-size: 1.06rem; line-height: 1.7; color: var(--ink); margin: 0 0 2.2em; max-width: 34em; }
-@media (max-width: 900px) { .copy .story { order: 2; text-align: center; text-wrap: balance; margin-left: auto; margin-right: auto; } }
+.copy .story { font-size: 1.06rem; line-height: 1.7; color: var(--ink); margin: 0 auto 2.2em; max-width: 34em; text-align: center; text-wrap: balance; }
+@media (max-width: 900px) { .copy .story { order: 2; } }
