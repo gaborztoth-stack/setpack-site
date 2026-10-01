@@ -223,10 +223,10 @@ button.cta { font: inherit; font-weight: 600; cursor: pointer; }
 .foot .contact a { color: var(--ink-2); }
 .foot footer { margin-top: 0.8em; font-size: 0.66rem; letter-spacing: 0.14em; }
 
-/* foot on wide screens: one row across the content width — © + contact left, the three links right */
+/* foot on wide screens: one row across the content width — the three links left, contact + © right */
 @media (min-width: 901px) {
   .foot { display: flex; align-items: center; justify-content: space-between; gap: 28px; text-align: left; }
-  .foot footer { order: 0; margin: 0; }
-  .foot .contact { order: 1; margin: 0 auto 0 0; }
-  .foot nav { order: 2; margin: 0; }
+  .foot nav { order: 0; margin: 0 auto 0 0; }
+  .foot .contact { order: 1; margin: 0; }
+  .foot footer { order: 2; margin: 0; }
 }
