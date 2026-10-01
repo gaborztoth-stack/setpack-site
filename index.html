@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SETPACK — A technical planning system for film, theatre and events</title>
-<meta name="description" content="SETPACK — a technical planning system for film, theatre and events. iPad only.">
+<title>SETPACK — A technical planning system for people who build fast, for a short time</title>
+<meta name="description" content="SETPACK — a technical planning system for people who build fast, for a short time. Sets, stages, shows. iPad only.">
 <meta name="theme-color" content="#08080A">
 <meta property="og:title" content="SETPACK">
-<meta property="og:description" content="A technical planning system for film, theatre and events. iPad only.">
+<meta property="og:description" content="If it’s not marked, it doesn’t exist. A technical planning system for people who build fast, for a short time.">
 <meta property="og:image" content="https://setpack.dev/assets/setpack-icon-512.png">
 <meta property="og:url" content="https://setpack.dev/">
 <link rel="icon" href="./assets/setpack-icon-32.png" sizes="32x32" type="image/png">
@@ -15,34 +15,80 @@
 <link rel="stylesheet" href="./assets/site.css">
 </head>
 <body>
-  <main class="wrap">
-    <header class="hero">
-      <img class="mark" src="./assets/setpack-icon-256.png" width="64" height="64" alt="">
-      <h1 class="setpack-wordmark" aria-label="SETPACK">SET<b>PACK</b></h1>
-    </header>
-    <p class="lead-in">We&rsquo;ve all been there:</p>
-    <p class="claim">If it&rsquo;s not marked, it doesn&rsquo;t exist.</p>
-    <p class="tag">A technical planning system for film, theatre and events.</p>
+  <main class="wrap landing">
+    <div class="split">
+      <section class="copy">
+        <header class="brand">
+          <img class="mark" src="./assets/setpack-icon-256.png" width="88" height="88" alt="">
+          <h1 class="setpack-wordmark" aria-label="SETPACK">SET<b>PACK</b></h1>
+          <span class="label">Sets &middot; Stages &middot; Shows</span>
+        </header>
 
-    <ul class="does">
-      <li>Tap to place. Drag to position. Faster than redrawing a plot by hand.</li>
-      <li>Every department on one clear, compact plan. Export a PDF anyone can read.</li>
-      <li>iPad only. Everything runs on the device: no account, no tracking, no servers.</li>
-    </ul>
+        <p class="lead-in">We&rsquo;ve all been there:</p>
+        <p class="claim">If it&rsquo;s not marked, it doesn&rsquo;t exist.</p>
+        <p class="tag">A technical planning system for people who build fast, for a short time.</p>
 
-    <section class="panel">
-      <span class="label">Private beta</span>
-      <p>SETPACK is in private beta. We are inviting a small number of working film crew to use it on real jobs and tell us what breaks.</p>
-      <a class="cta" href="https://tally.so/r/zxBXXZ">Request beta access</a>
-    </section>
+        <p class="story">Surprises are for birthdays. At work, we&rsquo;d rather meet as few as we can. Being prepared and being fast mean the same thing: calm, and a steady day. It&rsquo;s simply better to be ready for the madness we all know shows up, time and again.</p>
 
-    <nav>
-      <a href="./privacy.html">Privacy Policy</a>
-      <a href="./terms.html">Terms of Use</a>
-      <a href="./support.html">Support</a>
-    </nav>
-    <p class="contact">Contact: <a href="mailto:support@setpack.app">support@setpack.app</a></p>
-    <footer>&copy; SETPACK</footer>
+        <section class="panel">
+          <span class="label">Private beta &middot; iPad only</span>
+          <p>We are inviting a small number of crews who work on sets and stages to use it on real jobs and tell us what breaks. If this would save someone you work with, pass it on.</p>
+          <div class="actions">
+            <a class="cta" href="https://tally.so/r/zxBXXZ">Request beta access</a>
+            <button class="cta ghost plane" type="button" id="pass-it-on" aria-label="Pass it on" title="Pass it on">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M3 11.2 21 3l-8.2 18-2.3-7.5L3 11.2Z"/><path d="M10.5 13.5 21 3"/></svg>
+            </button>
+          </div>
+        </section>
+        <script>
+          // Pass it on: the phone's own share sheet (WhatsApp, Messages, AirDrop...), else copy the link. No tracking.
+          (function () {
+            var b = document.getElementById('pass-it-on');
+            if (!b) return;
+            var url = 'https://setpack.dev/';
+            var data = { title: 'SETPACK', text: 'If it\u2019s not marked, it doesn\u2019t exist.', url: url };
+            function done(label) { b.title = label; b.classList.add('ok'); setTimeout(function () { b.title = 'Pass it on'; b.classList.remove('ok'); }, 2200); }
+            b.addEventListener('click', function () {
+              if (navigator.share) { navigator.share(data).catch(function () {}); return; }
+              if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(url).then(function () { done('Link copied'); }, function () { location.href = 'mailto:?subject=SETPACK&body=' + encodeURIComponent(data.text + '\n' + url); });
+                return;
+              }
+              location.href = 'mailto:?subject=SETPACK&body=' + encodeURIComponent(data.text + '\n' + url);
+            });
+          })();
+        </script>
+      </section>
+
+      <figure class="shot device">
+        <video autoplay muted loop playsinline preload="metadata" poster="./assets/plot-full-poster.jpg" width="1600" height="1148" aria-label="A lighting plot in SETPACK: fixtures, frames and furniture marked on a set floor plan, cleared and placed again.">
+          <source media="(max-width: 600px)" src="./assets/plot-detail.mp4" type="video/mp4">
+          <source src="./assets/plot-full.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <script>
+        // iOS Safari ignores <source media>: on phones swap in the readable detail cut by hand.
+        (function () {
+          var v = document.querySelector('.shot video');
+          if (!v || !window.matchMedia('(max-width: 600px)').matches) return;
+          v.querySelectorAll('source').forEach(function (s) { s.remove(); });
+          v.poster = './assets/plot-detail-poster.jpg';
+          v.src = './assets/plot-detail.mp4';
+          v.load();
+          var p = v.play(); if (p && p.catch) p.catch(function () {});
+        })();
+      </script>
+    </div>
+
+    <div class="foot">
+      <nav>
+        <a href="./privacy.html">Privacy Policy</a>
+        <a href="./terms.html">Terms of Use</a>
+        <a href="./support.html">Support</a>
+      </nav>
+      <p class="contact">Contact: <a href="mailto:support@setpack.app">support@setpack.app</a></p>
+      <footer>&copy; SETPACK</footer>
+    </div>
   </main>
 </body>
 </html>

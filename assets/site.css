@@ -135,3 +135,68 @@ footer { margin-top: 4em; color: var(--ink-3); }
   .mark { width: 52px; height: 52px; flex-basis: 52px; }
   .hero { gap: 14px; }
 }
+
+/* ── landing: centred mark + wordmark, then text left / video right ── */
+.wrap.landing { max-width: 1520px; padding: 8vh 40px 6vh; }
+
+.brand {
+  display: flex; flex-direction: column; align-items: flex-start; text-align: left;
+  gap: 16px; margin: 0 0 3em;
+}
+.brand .mark {
+  width: 88px; height: 88px; flex: none; border-radius: 22.5%;
+}
+.brand h1.setpack-wordmark { font-size: 48px; }
+.brand .label { margin: 2px 0 0; color: var(--ink-3); font-size: 0.64rem; letter-spacing: 0.14em; }
+
+.split {
+  display: grid; grid-template-columns: minmax(340px, 4fr) minmax(0, 8fr);
+  gap: 56px; align-items: center; margin: 0 0 10vh;
+}
+.copy .claim { font-size: 2.1rem; line-height: 1.15; margin: 0 0 0.45em; text-wrap: balance; }
+.copy .tag { font-size: 1.15rem; color: var(--ink-2); margin: 0 0 2em; text-wrap: balance; }
+.copy ul.does { margin-bottom: 2.2em; }
+.copy .panel { margin: 0; }
+
+/* video: no mockup, as large as the layout allows — just the footage, hairline + small radius */
+.shot { margin: 0; }
+.shot.device video {
+  display: block; width: 100%; height: auto;
+  border-radius: 10px; border: 1px solid var(--hair); background: var(--board);
+}
+
+.foot { border-top: 1px solid var(--hair); padding-top: 2.4em; text-align: center; }
+.foot nav { justify-content: center; }
+.foot footer { margin-top: 1.6em; }
+
+/* tablet / phone: one column, video directly under the claim */
+@media (max-width: 900px) {
+  .split { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+  .copy .lead-in, .copy .claim, .copy .tag { text-align: center; }
+  .copy { display: contents; }
+  .copy .lead-in, .copy .claim, .copy .tag { order: 0; }
+  .shot.device { order: 1; margin: 0 0 2.4em; }
+  .copy ul.does { order: 2; }
+  .copy .panel { order: 3; }
+  .brand { align-items: center; text-align: center; margin-bottom: 5vh; }
+}
+@media (max-width: 600px) {
+  .wrap.landing { padding: 7vh 20px 5vh; }
+  .brand { gap: 12px; }
+  .brand .mark { width: 60px; height: 60px; }
+  .brand h1.setpack-wordmark { font-size: 32px; }
+  .copy .claim { font-size: 1.95rem; line-height: 1.12; }
+  .shot.device { margin-left: -20px; margin-right: -20px; }
+  .shot.device video { border-radius: 0; border-left: 0; border-right: 0; aspect-ratio: 1200 / 740; object-fit: cover; }
+}
+
+/* beta actions: CTA + a small paper-plane "pass it on" button, one row */
+.panel .actions { display: flex; align-items: stretch; gap: 10px; }
+button.cta { font: inherit; font-weight: 600; cursor: pointer; }
+.cta.plane { display: inline-flex; align-items: center; justify-content: center; padding: 0 15px; color: var(--ink); }
+.cta.plane:hover { color: var(--accent); }
+.cta.plane.ok { border-color: var(--accent); color: var(--accent); }
+
+/* story: the message core as one flowing paragraph (replaces the 3 points) */
+.copy .story { font-size: 1.06rem; line-height: 1.7; color: var(--ink); margin: 0 0 2.2em; max-width: 34em; }
+@media (max-width: 900px) { .copy .story { order: 2; text-align: center; text-wrap: balance; margin-left: auto; margin-right: auto; } }
