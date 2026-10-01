@@ -215,6 +215,7 @@ button.cta { font: inherit; font-weight: 600; cursor: pointer; }
 .copy .panel .cta.plane:hover, .copy .panel .cta.plane.ok { color: var(--ink); }
 
 /* foot, quiet like the beta block: plain links, no chips; contact + © in the same small mono */
+.foot { border-top: 0; }
 .foot nav { gap: 28px; margin-bottom: 1.4em; }
 .foot nav a { padding: 0; background: none; border: 0; border-radius: 0; color: var(--ink-2); font-size: 0.85rem; font-weight: 400; }
 .foot nav a:hover { color: var(--ink); text-decoration: none; }
