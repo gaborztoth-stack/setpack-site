@@ -64,9 +64,9 @@
       </section>
 
       <figure class="shot device">
-        <video autoplay muted loop playsinline preload="metadata" poster="./assets/plot-full-poster.jpg" width="1600" height="1148" aria-label="A lighting plot in SETPACK: fixtures, frames and furniture marked on a set floor plan, cleared and placed again.">
-          <source media="(max-width: 600px)" src="./assets/plot-detail.mp4" type="video/mp4">
-          <source src="./assets/plot-full.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline preload="metadata" poster="./assets/plot-full-poster.jpg?v=1017" width="1600" height="1200" aria-label="A lighting plot in SETPACK: fixtures, frames and furniture marked on a set floor plan, cleared and placed again.">
+          <source media="(max-width: 600px)" src="./assets/plot-detail.mp4?v=1017" type="video/mp4">
+          <source src="./assets/plot-full.mp4?v=1017" type="video/mp4">
         </video>
       </figure>
       <script>
@@ -75,8 +75,8 @@
           var v = document.querySelector('.shot video');
           if (!v || !window.matchMedia('(max-width: 600px)').matches) return;
           v.querySelectorAll('source').forEach(function (s) { s.remove(); });
-          v.poster = './assets/plot-detail-poster.jpg';
-          v.src = './assets/plot-detail.mp4';
+          v.poster = './assets/plot-detail-poster.jpg?v=1017';
+          v.src = './assets/plot-detail.mp4?v=1017';
           v.load();
           var p = v.play(); if (p && p.catch) p.catch(function () {});
         })();
